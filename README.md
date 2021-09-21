@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Qdo
 
-## Getting Started
+Quiz style tuts, tips, and notes
 
-First, run the development server:
+## 描画の流れ
 
-```bash
-npm run dev
-# or
-yarn dev
+データソースとしてHTMLファイルを使う.
+
+1. getStaticPropsでHTMLファイルを読み込む
+2. JSDomあたりでパース
+3. [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml)で表示する.
+
+2でkatexやshikiでのレンダリングを実行し置き換える. 必要ならJSONに変換しコンポーネントに渡す.
+
+## ブログとしてのQdo
+
+SSGの機能を利用して静的HTMLを出力する. 
+
+```json
+"ssg": "next build && next export"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+この時Katexによる数式の描画やshikiによるコード・ハイライトが実行される.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## WebアプリとしてのQdo
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+簡単なクイズアプリとして実行する. rust側で操作するべきか?
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+TODO: [env-cmd](https://www.npmjs.com/package/env-cmd)を調べる
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## References
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [How to use diferent .env files with nextjs?](https://stackoverflow.com/questions/59462614/how-to-use-diferent-env-files-with-nextjs/61750672#61750672)
