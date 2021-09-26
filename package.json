@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/jsdom": "^16.2.13",
     "jsdom": "^17.0.0",
     "katex": "^0.13.18",
     "next": "11.1.2",
