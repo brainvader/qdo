@@ -34,8 +34,8 @@ interface HomeProps {
 export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
 
   // Read data source
-  const dataDir = path.resolve(process.cwd(), '..', 'data')
-  const dataFiename = path.resolve(dataDir, "sample.html")
+  const dataDir = path.resolve(process.cwd(), 'quiz', 'qdo')
+  const dataFiename = path.resolve(dataDir, "index.html")
   const dataPath = path.resolve(dataDir, dataFiename)
   const data = fs.readFileSync(dataPath, 'utf8');
 
