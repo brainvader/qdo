@@ -30,6 +30,8 @@ interface HomeProps {
   post: string
 }
 
+// Check non null
+const nonNullNode = (element: Element | null): boolean => !!element;
 
 export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
 
@@ -49,17 +51,32 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
 
 
   // Get math string
-  const mathNode = document.querySelector('.math')!
-  mathNode.innerHTML = renderMath(mathNode.textContent!)
+  const mathNodes = document.querySelectorAll('.math');
+  Array.from(mathNodes)
+    .filter(nonNullNode)
+    .map(element => {
+      if (element.textContent !== null) {
+        const katexMath = renderMath(element.textContent)
+        element.innerHTML = katexMath
+      }
+    })
 
   // Highlight code
   const jsdom = new JSDOM()
   const domParser = new jsdom.window.DOMParser()
   const highlighter = await shiki.getHighlighter({ theme: 'monokai' })
-  const codeNode = document.querySelector('.code code')!
-  const sourceCode = codeNode.textContent!
-  const doc = domParser.parseFromString(highlighter.codeToHtml(sourceCode, 'rust'), 'text/html')!
-  codeNode.parentNode!.replaceChild(doc.body!.firstChild!, codeNode)
+  const codeNodes = document.querySelectorAll('.code code')
+  Array.from(codeNodes)
+    .filter(nonNullNode)
+    .map(element => {
+      if (element.textContent !== null) {
+        const sourceCode = element.textContent
+        // TODO: Fix hard code rust: should give the language name dynamically
+        const doc = domParser.parseFromString(highlighter.codeToHtml(sourceCode, 'rust'), 'text/html')!
+        element.parentNode!.replaceChild(doc.body!.firstChild!, element)
+      }
+    })
+
 
   return {
     props: {
