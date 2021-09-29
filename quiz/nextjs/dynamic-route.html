@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.2.2" />
+    <meta name="keywords" content="nextjs, dynamic-route" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content=2021-09-29T22:08:11>
+    <title>動的ルート</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">動的ルート</h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">動的ルートとは?</p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <dfn title="動的ルート">動的ルート</dfn>はページ生成時に動的に設定されるルートのことで,
+                    <a href="" class="related-word">pagesディレクトリ</a>以下でファイル名を[]で囲ったコンポーネントに適用されます
+                </p>
+                <p class="text">
+                    例えばpages/quiz/[pid].jsとすると大括弧の部分は動的に決定されます. pidが1ならquiz/1となります.
+                </p>
+                <p>
+                    また, pidに渡された値はNext.jsの<a href="" class="related-word">ルーター</a>が持つ<a href=""
+                        class="related-word">queryオブジェクト</a>を通じて参照できます.
+                </p>
+                <pre>
+                    <code class="code" lang="typescript">
+                        import { useRouter } from 'next/router'
+
+                        const Quiz = () => {
+                        const router = useRouter()
+                        const { pid } = router.query
+
+                        return <p>Quiz: {pid}</p>
+                        }
+
+                        export default Quiz
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </main>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1"><a href="https://nextjs.org/docs/routing/dynamic-routes">Dynamic Routes</a></li>
+        </ul>
+    </aside>
+</body>
+
+</html>
