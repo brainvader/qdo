@@ -55,8 +55,9 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
     .map(element => {
       if (element.textContent !== null) {
         const sourceCode = element.textContent
-        // TODO: Fix hard code rust: should give the language name dynamically
-        const doc = domParser.parseFromString(highlighter.codeToHtml(sourceCode, 'rust'), 'text/html')!
+        const lang = element.getAttribute('lang')!
+        const mathString = highlighter.codeToHtml(sourceCode, lang)
+        const doc = domParser.parseFromString(mathString, 'text/html')!
         element.parentNode!.replaceChild(doc.body!.firstChild!, element)
       }
     })
