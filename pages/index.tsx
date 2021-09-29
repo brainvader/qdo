@@ -5,17 +5,12 @@ import katex from 'katex'
 import * as shiki from 'shiki'
 import { GetStaticPropsResult, GetStaticPropsContext } from 'next'
 
+import { getTags } from '../utils/qdo-dom'
+
 export default function Home({ post }: HomeProps) {
   return (
     <div dangerouslySetInnerHTML={{ __html: post }}></div>
   )
-}
-
-// get keywords in meta tag
-function getKeywords(metaData: HTMLCollectionOf<HTMLMetaElement>): string[] {
-  const metaValues = Object.values(metaData);
-  const keywords = metaValues.find((meta) => meta.name === "keywords");
-  return keywords!.content.split(",");
 }
 
 function renderMath(math_string: string): string {
@@ -47,7 +42,7 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
 
   // Get meta data
   const metas = document.getElementsByTagName('meta')
-  const keyword = getKeywords(metas)
+  const tags = getTags(metas);
 
 
   // Get math string
