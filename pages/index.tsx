@@ -1,11 +1,10 @@
 import path from 'path'
 import fs from 'fs'
 import { JSDOM } from 'jsdom'
-import katex from 'katex'
 import * as shiki from 'shiki'
 import { GetStaticPropsResult, GetStaticPropsContext } from 'next'
 
-import { getTags, nonNullNode } from '../utils/qdo-dom'
+import { getTags, nonNullNode, renderMath } from '../utils/qdo-dom'
 
 export default function Home({ post }: HomeProps) {
   return (
@@ -13,13 +12,6 @@ export default function Home({ post }: HomeProps) {
   )
 }
 
-function renderMath(math_string: string): string {
-  return katex.renderToString(math_string, {
-    displayMode: true,
-    output: 'mathml',
-    throwOnError: false
-  })
-}
 
 interface HomeProps {
   post: string
