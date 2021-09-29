@@ -1,9 +1,10 @@
 import path from 'path'
 import fs from 'fs'
 import { JSDOM } from 'jsdom'
-import katex from 'katex'
 import * as shiki from 'shiki'
 import { GetStaticPropsResult, GetStaticPropsContext } from 'next'
+
+import { getTags, nonNullNode, renderMath } from '../utils/qdo-dom'
 
 export default function Home({ post }: HomeProps) {
   return (
@@ -11,27 +12,10 @@ export default function Home({ post }: HomeProps) {
   )
 }
 
-// get keywords in meta tag
-function getKeywords(metaData: HTMLCollectionOf<HTMLMetaElement>): string[] {
-  const metaValues = Object.values(metaData);
-  const keywords = metaValues.find((meta) => meta.name === "keywords");
-  return keywords!.content.split(",");
-}
-
-function renderMath(math_string: string): string {
-  return katex.renderToString(math_string, {
-    displayMode: true,
-    output: 'mathml',
-    throwOnError: false
-  })
-}
 
 interface HomeProps {
   post: string
 }
-
-// Check non null
-const nonNullNode = (element: Element | null): boolean => !!element;
 
 export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
 
@@ -47,7 +31,7 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
 
   // Get meta data
   const metas = document.getElementsByTagName('meta')
-  const keyword = getKeywords(metas)
+  const tags = getTags(metas);
 
 
   // Get math string
@@ -71,8 +55,9 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
     .map(element => {
       if (element.textContent !== null) {
         const sourceCode = element.textContent
-        // TODO: Fix hard code rust: should give the language name dynamically
-        const doc = domParser.parseFromString(highlighter.codeToHtml(sourceCode, 'rust'), 'text/html')!
+        const lang = element.getAttribute('lang')!
+        const mathString = highlighter.codeToHtml(sourceCode, lang)
+        const doc = domParser.parseFromString(mathString, 'text/html')!
         element.parentNode!.replaceChild(doc.body!.firstChild!, element)
       }
     })
