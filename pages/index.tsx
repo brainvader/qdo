@@ -5,7 +5,7 @@ import katex from 'katex'
 import * as shiki from 'shiki'
 import { GetStaticPropsResult, GetStaticPropsContext } from 'next'
 
-import { getTags } from '../utils/qdo-dom'
+import { getTags, nonNullNode } from '../utils/qdo-dom'
 
 export default function Home({ post }: HomeProps) {
   return (
@@ -24,9 +24,6 @@ function renderMath(math_string: string): string {
 interface HomeProps {
   post: string
 }
-
-// Check non null
-const nonNullNode = (element: Element | null): boolean => !!element;
 
 export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
 
