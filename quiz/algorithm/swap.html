@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="brainvader, brainvade@gmail.com" />
+    <meta name="generator" content="qdo 0.2.3" />
+    <meta name="category" content="algorithm">
+    <meta name="keywords" content="algorithm" />
+    <meta name='date' content=2021-09-30T22:26:10>
+    <title>Swap</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">Swap</h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">スワップ操作を実装せよ.</p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <dfn title="swap">スワップ(swap)</dfn>は2つの変数の値を入れ替える操作です.
+                </p>
+                <p class="text">
+                    2つの変数の値を入れ替える際に一方の変数を<a href="" class="related-word">一時変数(temporary variable)</a>に保存しておく.
+                    そして保存した変数の値を他方の変数の値と入れ替える.
+                    最後に一時変数に保存していない方の変数に一時変数の値を上書きする.
+                    これで二つの変数の値を交換したことになる.
+                </p>
+                <pre class="code">
+                    <code lang="rust">
+                        let a = 5;
+                        let b = 10;
+                        let temp = a;
+                        let a = b;
+                        let b = temp;
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
