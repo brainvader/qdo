@@ -10,7 +10,7 @@ export default function QuizList({ quizzes }: QuizListProps) {
     return (
         <ul>
             {
-                quizzes.map((i, quiz) => <div key={i}>{quiz}</div>)
+                quizzes.map((quiz, i) => <div key={i}>{quiz}</div>)
             }
         </ul >
     )
