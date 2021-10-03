@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "ssg": "next build && next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dump:quiz": "find quiz -type f"
   },
   "dependencies": {
     "@types/jsdom": "^16.2.13",

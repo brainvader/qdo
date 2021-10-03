@@ -4,20 +4,18 @@ import { JSDOM } from 'jsdom'
 import * as shiki from 'shiki'
 import { GetStaticPropsResult, GetStaticPropsContext } from 'next'
 
+import Quiz, { QuizProps } from '../components/quiz'
+
 import { getTags, nonNullNode, renderMath } from '../utils/qdo-dom'
 
-export default function Home({ post }: HomeProps) {
+export default function Home({ quiz }: QuizProps) {
   return (
-    <div dangerouslySetInnerHTML={{ __html: post }}></div>
+    <Quiz quiz={quiz} />
   )
 }
 
 
-interface HomeProps {
-  post: string
-}
-
-export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<HomeProps>> {
+export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<QuizProps>> {
 
   // Read data source
   const dataDir = path.resolve(process.cwd(), 'quiz', 'qdo')
@@ -65,7 +63,7 @@ export async function getStaticProps(context: GetStaticPropsContext): Promise<Ge
 
   return {
     props: {
-      post: domTree.serialize()
+      quiz: domTree.serialize()
     },
   }
 }
