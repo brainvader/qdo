@@ -2,10 +2,10 @@ import path from 'path'
 
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
 
-import { walk } from '../../utils/helper'
+import { walk, readQuiz, Quiz } from '../../utils/helper'
 
 interface QuizListProps {
-    quizzes: string[]
+    quizzes: Quiz[]
 }
 
 // Display All Quizzes like alphabetical order
@@ -13,19 +13,29 @@ export default function QuizList({ quizzes }: QuizListProps) {
     return (
         <ul>
             {
-                quizzes.map((quiz, i) => <div key={i}>{quiz}</div>)
+                quizzes.map((quiz, i) => <div key={i}>{quiz.path}</div>)
             }
         </ul >
     )
 }
 
 export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<QuizListProps>> {
+    // construct path to directory that contains quiz files
     const quizDir = path.join(process.cwd(), 'quiz')
-    const fileList: string[] = await walk(quizDir, [])
+
+    // get a list of all pathes to quiz files
+    const files: string[] = await walk(quizDir, [])
+
+    // read content from quiz files
+    const quizzes: Quiz[] = []
+    for (const file of files) {
+        const quiz = await readQuiz(file)
+        quizzes.push(quiz)
+    }
 
     return {
         props: {
-            quizzes: fileList
+            quizzes: quizzes
         }
     }
 }
