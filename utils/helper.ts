@@ -1,6 +1,6 @@
 import path from 'path'
-import { readdir } from 'fs/promises';
-import { Dirent } from 'fs'
+import { readdir, readFile } from 'fs/promises';
+import { Dirent, PathLike } from 'fs'
 
 export async function walk(dir: string, fileList: string[]): Promise<string[]> {
     const dirents: Dirent[] = await readdir(dir, { withFileTypes: true })
@@ -15,4 +15,20 @@ export async function walk(dir: string, fileList: string[]): Promise<string[]> {
         }
     }
     return fileList
+}
+
+// Pair path to file with its content
+export interface Quiz {
+    path: PathLike,
+    content: string
+}
+
+// Read quiz string in a html format
+export async function readQuiz(filePath: PathLike): Promise<Quiz> {
+    const quiz = await readFile(filePath, { encoding: "utf-8" })
+
+    return {
+        path: filePath,
+        content: quiz
+    }
 }
