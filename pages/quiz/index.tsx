@@ -21,7 +21,9 @@ export default function QuizList({ quizzes }: QuizListProps) {
 
 export async function getStaticProps(context: GetStaticPropsContext): Promise<GetStaticPropsResult<QuizListProps>> {
     // construct path to directory that contains quiz files
-    const quizDir = path.join(process.cwd(), 'quiz')
+    const quizDir = path.join('.', 'quiz')
+    console.log(process.cwd());
+
 
     // get a list of all pathes to quiz files
     const files: string[] = await walk(quizDir, [])
