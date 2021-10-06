@@ -1,6 +1,7 @@
 import path from 'path'
 
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
+import Link from 'next/link'
 
 import { walk, readQuiz, Quiz } from '../../utils/helper'
 
@@ -8,12 +9,27 @@ interface QuizListProps {
     quizzes: Quiz[]
 }
 
-// Display All Quizzes like alphabetical order
+// Display All items like index
 export default function QuizList({ quizzes }: QuizListProps) {
     return (
         <ul>
             {
-                quizzes.map((quiz, i) => <div key={i}>{quiz.path}</div>)
+                quizzes.map((quiz, i) => {
+                    const slug = quiz.slug
+                    const base = path.parse(slug).dir
+                    const categoryPath = path.relative('/quiz/', slug)
+                    const category = path.parse(categoryPath).dir
+                    // quiz.html => quiz
+                    const indexHeading = path.parse(slug).name
+
+                    return (
+                        <li key={i}>
+                            < Link href={path.join(base, indexHeading)}>
+                                <a>{`${indexHeading} [${category}]`}</a>
+                            </Link >
+                        </li>
+                    )
+                })
             }
         </ul >
     )
