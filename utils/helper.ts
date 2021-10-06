@@ -18,17 +18,17 @@ export async function walk(dir: string, fileList: string[]): Promise<string[]> {
 }
 
 // Pair path to file with its content
-export interface Quiz {
-    path: PathLike,
+export type Quiz = {
+    slug: string,
     content: string
 }
 
 // Read quiz string in a html format
-export async function readQuiz(filePath: PathLike): Promise<Quiz> {
+export async function readQuiz(filePath: string): Promise<Quiz> {
     const quiz = await readFile(filePath, { encoding: "utf-8" })
 
     return {
-        path: filePath,
+        slug: filePath,
         content: quiz
     }
 }
