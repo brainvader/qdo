@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.2.3" />
+    <meta name="keywords" content="react" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content=2021-10-08T23:29:52>
+    <title>
+        Component<rp>(</rp>
+        <rt>コンポーネント</rt>
+        <rp>)</rp>
+    </title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title"></h1>
+        <span data-en="component">コンポーネント</span>
+        </h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">
+                    <span
+                        data-en="component">コンポーネント</span>とは?
+                </p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <dfn
+                        title="コンポーネント">コンポーネント</dfn>はReactアプリケーションを構成する中心的な構成要素です.
+                    コンポーネントには実装方法によって<span
+                        data-dep="functional-component">関数コンポーネント</span>と<span
+                        data-dep="class-component">クラス・コンポーネント</span>があります.
+                </p>
+                <p class="text">
+                    関数コンポーネントの場合は以下のように定義します.
+                </p>
+                <pre class="code">
+                    <code lang="jsx">
+                        function Hello(props) {
+                            return (
+                                <div>
+                                    <p>{props.message}</p>
+                                </div>
+                            )
+                        }
+                    </code>
+                </pre>
+                <p class="text">
+                    いずれの場合でも定義したコンポーネントは以下のように使います.
+                </p>
+                <pre class="code">
+                    <code lang="jsx">
+                        <Hello message="Hello World"/>
+                    </code>
+                </pre>
+                <p class="text">
+                    見た目は<span
+                        data-dep="html">HTML</span>タグとよく似ています.
+                    属性は<span
+                        data-dep="props">props</span>と呼ばれます.
+                    propsはpropertiesの略でオブジェクトとしてコンポーネントに渡され内部で利用されます.
+                    propsはただ外部から与えられるだけで絶対に内部で変更してはいけません.
+                    全てのコンポーネントはpropsに対して<span
+                        data-dep="pure-function">純粋関数</span>として振舞うべきとされています.
+                </p>
+                <p class="text">
+                    もう一つ<span
+                        data-dep="state">ステート</span>と呼ばれるコンポーネントの内部状態を表すプロパティを持ちます.
+                    ステートを持つかどうかで<span
+                        data-dep="stateful-component">ステートフル・コンポーネント</span>と<span
+                        data-dep="stateless-component">ステートレス・コンポーネント</span>に分けられます.
+                </p>
+            </div>
+        </section>
+    </main>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1"><a
+                    href="https://reactjs.org/docs/components-and-props.html">Components
+                    and
+                    Props</a></li>
+            <li id="ref-2"><a
+                    href="https://reactjs.org/docs/state-and-lifecycle.html">State
+                    and Lifecycle</a></li>
+        </ul>
+    </aside>
+</body>
+
+</html>
