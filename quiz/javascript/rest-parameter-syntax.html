@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.3.0" />
+    <meta name="keywords" content="react" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content=2021-10-10T23:52:38>
+    <title>
+        <span
+            data-ruby="rest parameter syntax">残余引数構文</span>
+    </title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">
+            <span
+                data-ruby="rest parameter syntax">残余引数構文</span>
+        </h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">
+                    <span
+                        data-ruby="rest parameter syntax">残余引数構文</span>とは?
+                </p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <dfn
+                        title="rest parameter syntax">残余引数構文</dfn>は<span
+                        data-dep="variadic arguments">可変個引数</span>を指定できる構文です.
+                    残余と呼ばれるのは第2引数以下に指定することで残り全部の引数を表現できるからです.
+                </p>
+                <p class="text">
+                    引数の前に3点リーダ<a
+                        href="#footnote-1"><sup>*1</sup></a>を付けると<span
+                        data-dep="rest parameter">残余引数</span>として扱われ,
+                    配列になります. 残余引数の後ろに引数を置くことはできません.
+                </p>
+                <pre class="code">
+                    <code lang="javascript">
+                        function sum(a, b, ...rest) {
+                            const initialValue = a + b;
+                            return rest.reduce(pre, current) => {
+                            }, initialValue);
+                        }
+                    </code>
+                </pre>
+                <p class="text">
+                    sum関数に渡された第3引数以降は例え1つしか値を指定しなくてもrestに配列として格納されます.
+                </p>
+            </div>
+        </section>
+    </main>
+    <aside id="footnote">
+        <h2 id="footnote-title">脚注</h2>
+        <ol id="footnote-list">
+            <li id="footnote-1" class="footnote-item">
+                同様に3点リーダを使う構文に
+                <span
+                    data-dep="spread-syntax">スプレッド構文</span>があります.
+            </li>
+        </ol>
+    </aside>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1">
+                <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters">Rest
+                    parameters
+                </a>
+            </li>
+        </ul>
+    </aside>
+</body>
+
+</html>
