@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.3.0" />
+    <meta name="keywords" content="react" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content=2021-10-10T16:25:40>
+    <title>
+        <span data-ruby="hooks">フック関数</span>
+    </title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">
+            <span data-ruby="hooks">フック関数</span>
+        </h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">
+                    <span data-ruby="hooks">フック関数</span>
+                </p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <dfn title="hooks">フック関数</dfn>は<span
+                        data-dep="react">React</span>のバージョン1.68から導入されて新機能です.
+                    状態を持つコンポーネント(<span
+                        data-dep="stateful-component">ステート・フル・コンポーネント</span>)から状態を独立させて<span
+                        data-dep="function">関数</span>として扱えるようにしたものです.
+                    フック関数を使うと<span
+                        data-dep="state">状態</span>をコンポーネントから切り出して<span
+                        data-dep="composable">構成可能</span>にすることができます.
+                    フックは単なる関数なので<span
+                        data-dep="test">テスト</span>も簡単にできます.
+                </p>
+                <p class="text">
+                    例えば<span
+                        data-dep="state-hook">useState</span>フックを使うと,
+                    <span
+                        data-dep="stateless-component">ステートレス・コンポーネント</span>に簡単に状態を与えることができます.
+                </p>
+                <p class="text">
+                    それ以前は<span
+                        data-dep="es6">ES6</span>のクラスでコンポーネントを定義していました.
+                    こうした<span
+                        data-dep="class-component">クラス・コンポーネント</span>は状態をコンポーネントが持つことが前提なので状態を分離することが難しくなります.
+                    そうすると状態を更新する<span
+                        data-dep="logic">ロジック</span>も内部に抱え込むことになります.
+                    また<span
+                        data-dep="wrapper-hell">ラッパー地獄</span>へと繋がりました.
+                    これはコンポーネントの構造を変化させることなく<span
+                        data-dep="refactoring">リファクタリング</span>することも困難にしていました.
+                </p>
+            </div>
+        </section>
+    </main>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1">
+                <a
+                    href="https://reactjs.org/docs/hooks-intro.html">Introducing
+                    Hooks
+                </a>
+            </li>
+            <li id="ref-2">
+                <a
+                    href="https://dev.to/dan_abramov/making-sense-of-react-hooks-2eib">Making
+                    Sense of React
+                    Hooks
+                </a>
+            </li>
+            <li id="ref-3">
+                <a
+                    href="https://www.basefactor.com/react-class-components-pitfalls">React
+                    class components
+                    pitfalls
+                </a>
+            </li>
+        </ul>
+    </aside>
+</body>
+
+</html>
