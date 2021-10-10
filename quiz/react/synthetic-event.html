@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.3.0" />
+    <meta name="keywords" content="react" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content=2021-10-10T11:53:44>
+    <title>
+        <span data-ruby="synthetic event">合成イベント</span>
+    </title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">
+            <span data-ruby="synthetic event">合成イベント</span>
+        </h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">
+                    <span　data-ruby="synthetic
+                        event">合成イベント</span>とは?
+                </p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <dfn title="synthetic
+                    event">合成イベント</dfn>とは<span
+                        data-ruby="cross browser">クロスブラウザ</span>の<span
+                        data-ruby="native event">ネイティブ・イベント</span>に対するラッパーです.
+                </p>
+                <p class="text">
+                    ブラウザによって<span
+                        data-ruby="browser event">ブラウザ・イベント</span>の挙動が違う.
+                    合成イベントによってその違いを吸収している.
+                </p>
+                <p class="text">
+                    利用するのは簡単で単に<span
+                        data-ruby="event handler">イベント・ハンドラ</span>
+                    に適当な名前で渡せばよい.
+                </p>
+                <pre class="code">
+                    <code lang="jsx">
+                        function handleClick(e) {
+                            e.preventDefault();
+                            // 何かする
+                        }
+                    </code>
+                </pre>
+                <p class="text">
+                    handleClick関数の引数eが合成イベントということになる.
+                </p>
+            </div>
+        </section>
+    </main>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1">
+                <a
+                    href="https://reactjs.org/docs/handling-events.html">Handling
+                    Events</a>
+            </li>
+            <li id="ref-2">
+                <a
+                    href="https://reactjs.org/docs/events.html">SyntheticEvent</a>
+            </li>
+        </ul>
+    </aside>
+</body>
+
+</html>

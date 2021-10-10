@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.2.3" />
+    <meta name="keywords" content="react" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content=2021-10-07T00:21:49>
+    <title>React要素</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">React要素</h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">React要素とは?</p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <dfn title="react element">React要素</dfn>は<a href=""
+                        class="related-word">createElement</a>関数の戻り値です.
+                    単なる<a href="" class="related-word">POJO(Plaing Old
+                        Javascript Object)</a>で,
+                    実際に描画される<a href="" class="related-word">DOM</a>の設計図とも言えます.
+                </p>
+                <p class="text">以下のような引数でcreateElementを実行した場合を考えます.</p>
+                <pre class="code">
+                    <code lang="js">
+                        React.createElement(
+                            'h1',
+                            {className: 'qdo'},
+                            'Let's Qdo!'
+                            )                
+                    </code>
+                </pre>
+                <p class="text">するとReact要素が生成されます.</p>
+                <pre class="code">
+                    <code lang="js">
+                        {
+                            type: 'h1',
+                            props: {
+                              className: 'qdo',
+                              children: 'Let's Qdo!'
+                            }
+                        }                
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </main>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1"><a
+                    href="https://reactjs.org/docs/introducing-jsx.html#jsx-represents-objects">JSX
+                    Represents Objects </a></li>
+        </ul>
+    </aside>
+</body>
+
+</html>

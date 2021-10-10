@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.2.3" />
+    <meta name="keywords" content="react" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content=2021-10-07T00:00:33>
+    <title>createElement</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">createElement</h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">createElement関数とは</p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <a href="" class="related-word">JSX</a>は<dfn
+                        title="createElement">createElement</dfn>の<a href=""
+                        class="related-word">糖衣構文</a>である.
+                </p>
+                <p class="text">
+                    例えば以下のようなJSX要素を見てみよう.
+                </p>
+                <pre class="code">
+                    <code lang="jsx">
+                        <h1 className="qdo">Let's Qdo!</h1>
+                    </code>
+                </pre>
+                <p class="text">
+                    これがcreateElementで表されると,
+                </p>
+                <pre class="code">
+                    <code lang="jsx">
+                        React.createElement(
+                        'h1',
+                        {className: 'qdo'},
+                        'Let's Qdo!'
+                        );                   
+                    </code>
+                </pre>
+                <p class="text">
+                    これは普通のJavaScript関数と<a href=""
+                        class="related-word">オブジェクト・リテラル</a>である.
+                </p>
+            </div>
+        </section>
+    </main>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1"><a
+                    href="https://reactjs.org/docs/introducing-jsx.html#jsx-represents-objects">JSX
+                    Represents Objects </a></li>
+        </ul>
+    </aside>
+</body>
+
+</html>

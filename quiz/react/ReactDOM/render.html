@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.2.3" />
+    <meta name="keywords" content="react, react-dom" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content=2021-10-07T20:54:42>
+    <title>ReactDOM.render</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">ReactDOM.render</h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">ReactDOM.renderとは?</p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <dfn title="ReactDOM.render">ReacDOM.render関数</dfn>は受け取った<a
+                        href="" class="related-word">React要素</a>を<a href=""
+                        class="related-word">ルートDOMノード</a>以下に描画する関数で,
+                    コンポーネントへの参照を返します<a href="#footnote1"
+                        class="footnote-anchor"><sup>*1</sup></a>.
+                </p>
+                <pre class="code">
+                    <code lang="jsx">
+                        const element = createElement( /* your element info */ )
+                        const rootNode = document.getElementById('root')
+                        ReactDOM.render(element, rootNode)
+                    </code>
+                </pre>
+                <p class="text">
+                    オプションで<a href=""
+                        class="related-word">コールバック関数</a>を与えることができる.
+                    この第3引数はコンポーネントが描画された後, あるいは更新された後に実行されます.
+                </p>
+            </div>
+        </section>
+    </main>
+    <aside id="footnote">
+        <h2 id="footnote-title">脚注</h2>
+        <ol id="footnote-list">
+            <li id="footnote-1" class="footnote-item">
+                コンポーネントが非同期で描画されるようになる場合があるらしく, この挙動はレガシーになるようです.</li>
+        </ol>
+    </aside>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1"><a
+                    href="https://reactjs.org/docs/react-dom.html#render">render</a>
+            </li>
+        </ul>
+    </aside>
+</body>
+
+</html>
