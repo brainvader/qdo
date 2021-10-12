@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.3.0" />
+    <meta name="keywords" content="react" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content=2021-10-12T21:50:05>
+    <title>Controlled Component</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">
+            <span
+                data-ruby="controlled component">制御コンポーネント</span>
+        </h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">制御コンポーネントとは?</p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <dfn
+                        title="controlled-component">制御コンポーネント</dfn>はHTMLの<span
+                        data-dep="input-element">input要素</span>,
+                    <span
+                        data-dep="textarea-element">textarea要素</span>,
+                    <span
+                        data-dep="select-element">select要素</span>などのそれ自身が管理している状態を<span
+                        data-dep="react">React</span>の<span
+                        data-dep="component">コンポーネント</span>で管理する手法です.
+                </p>
+                <p class="text">
+                    例えばinput要素はvalueという値にアクセスすることで入力された値を取得できます.
+                    <span
+                        data-dep="change-event">changeイベント</span>に<span
+                        data-dep="event-listener">イベント・リスナ</span>を登録しておくと入力の変化するたびに値を取得できます.
+                </p>
+                <pre class="code">
+                    <code lang="js">
+                        const changeListener = (event) => console.log(event.target.value); 
+                        // input要素を取得しておく
+                        inputElement.addEventListener('change', changeListener)
+                    </code>
+                </pre>
+                <p class="text">
+                    この値をReactの<span
+                        data-dep="state">状態</span>として管理します.
+                </p>
+                <pre class="code">
+                    <code lang="tsx">
+                        function ControlledComponent() {
+                            const [value, setValue] = useState('')
+
+                            const changeListener = event => setValue(event.target.value);
+
+                            return (
+                                <input
+                                    type="text"
+                                    value={value}
+                                    onChange={handleChange}
+                                />
+                            );
+                        }
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </main>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1">
+                <a
+                    href="https://reactjs.org/docs/forms.html#controlled-components">Controlled
+                    Components </a>
+            </li>
+            <li id="ref-2"><a
+                    href="https://dmitripavlutin.com/controlled-inputs-using-react-hooks/">React
+                    Controlled
+                    Components, the Hooks Way
+                </a>
+            </li>
+        </ul>
+    </aside>
+</body>
+
+</html>
