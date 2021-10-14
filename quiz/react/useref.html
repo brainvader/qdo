@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.3.0" />
+    <meta name="keywords" content="react" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content=2021-10-13T23:35:36>
+    <title>useRef</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">useRef</h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">useRefとは?</p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p class="text">
+                    <dfn>useRef</dfn>は<span
+                        data-dep="react">React</span>のビルトイン<span
+                        data-dep="hooks">フック</span>の一つです.
+                </p>
+                <p class="text">
+                    戻り値は<span
+                        data-dep="mutable">ミュータブル</span>なオブジェクトです.
+                    <span
+                        data-dep="function component">関数コンポーネント</span>に参照を持たせることができるフックです.
+                    これはクラスのプロパティと似たような働きをします.　ただし<span
+                        data-dep="state hook">状態フック</span>の<span
+                        data-dep="useState">useState</span>とは違い値に変更があっても再レンダリングはおきません.
+                </p>
+                <p class="text">
+                    また<span
+                        data-dep="ref attribute">ref属性</span>に渡すとcurrentとというプロパティに<span
+                        data-dep="real dom">リアルDOM</span>への参照が保存されます.
+                    これにより実DOMに簡単にアクセスできます.
+                </p>
+                <pre class="code">
+                    <code lang="tsx">
+                        import { useRef, useState} from 'react';
+
+                        function InputComponent {
+                            const textAreaElement = useRef<HTMLTextAreaElement | null>(null);
+                            const [value, setValue] = useState<string>('');
+
+                            const changeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+                                setValue(event.target.value)
+                                console.log(textAreaElement.current === event.target) 
+                            }
+                            return (
+                                <div>
+                                    <textarea 
+                                        ref={textAreaElement}
+                                        onChange={changeHandler} 
+                                        value={value}/>
+                                </div>
+                            )
+                        }
+                    </code>
+                </pre>
+                <p class="text">
+                    大変便利な機能ですが上の例からもわかるように,　要素のインスタンスは<span
+                        data-dep="event-listener">イベント・リスナ</span>からも参照できます.
+                </p>
+            </div>
+        </section>
+    </main>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1">
+                <a
+                    href="https://reactjs.org/docs/hooks-reference.html#useref">useRef
+                </a>
+            </li>
+            <li id="ref-2">
+                <a
+                    href="https://reactjs.org/docs/hooks-state.html">Refs
+                    and the DOM</a>
+            </li>
+            <li id="ref-3">
+                <a
+                    href="https://reactjs.org/docs/hooks-faq.html#is-there-something-like-instance-variables">Is
+                    there something like instance
+                    variables?
+                </a>
+            </li>
+        </ul>
+    </aside>
+</body>
+
+</html>
