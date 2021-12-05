@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="qdo 0.4.0" />
+    <meta name="keywords" content="linux, lpic" />
+    <meta name="author" content="brainvader" />
+    <meta name='date' content="2021-12-0402:14:13Z">
+    <title>USBの情報を取得するには?</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">USBの情報を取得するには?</h1>
+    </header>
+
+    <main id="quiz">
+        <section id="question">
+            <h2 id="question-title"></h2>
+            <div id="question-content">
+                <p class="text">USBの情報を取得するには?</p>
+            </div>
+        </section>
+
+        <section id="answer">
+            <h2 id="answer-title">解答</h2>
+            <div id="answer-content">
+                <p>
+                    システムの情報は<span data-dep="/proc">/proc</span>以下に収められている.
+                    <span data-index-word="USB">USB</span>の場合/proc/bus/usb以下のファイルで確認できる.
+                </p>
+                <p>
+                    また<span data-dep="lscpu">lsusb</span>コマンドでも表示内容は違うもののUSBの情報を取得できる.
+                </p>
+            </div>
+        </section>
+    </main>
+    <aside id="reference">
+        <h2 id="reference-title">参考文献</h2>
+        <ul id="reference-list">
+            <li id="ref-1">
+                <a href="https://man7.org/linux/man-pages/man8/lsusb.8.html">lsusb(8) — Linux manual
+                    page1</a>
+            </li>
+        </ul>
+    </aside>
+</body>
+
+</html>
